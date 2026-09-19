@@ -1,0 +1,40 @@
+name: Build Linux bin
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Racket
+        uses: Bogdanp/setup-racket@v1.15
+        with:
+          version: '8.16'
+
+      - name: Install dependencies
+        run: raco pkg install --auto racket-cord http-easy
+
+      - name: Build executable
+        run: |
+          mkdir -p dist
+          raco exe -o dist/schemebotdiscord main.rkt
+
+      - name: Create archive
+        run: tar -czf schemebotdiscord-linux-x86_64.tar.gz -C dist schemebotdiscord
+
+      - name: Upload Linux binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: schemebotdiscord-linux-x86_64
+          path: schemebotdiscord-linux-x86_64.tar.gz
+          if-no-files-found: error
+          retention-days: 14
