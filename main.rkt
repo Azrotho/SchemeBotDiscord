@@ -17,10 +17,8 @@
   (define cleaned (regexp-replace* #px"[^a-zA-Z0-9\\s\\*'àâäéèêëîïôöùûüÿçÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ]" str ""))
   (regexp-replace* #px"\\\\n" cleaned "\n"))
 
-(define (random-line)
+(define (get-random-line)
   (random-line (string-split (clean contenu) "\n")))
-
-
 
 (write "Démarrage du bot Racket...")
 (newline)
