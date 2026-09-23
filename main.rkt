@@ -5,9 +5,13 @@
 (define BOT-TOKEN (getenv "DISCORD_BOT_TOKEN"))
 (define APP-ID (getenv "DISCORD_APP_ID"))
 
+(define contenu (file->string "citations.txt"))
+
 (define client (make-client BOT-TOKEN))
 
 (write "Démarrage du bot Racket...")
+(newline)
+(write contenu)
 (newline)
 (start-client client)
 (write "OK!")
