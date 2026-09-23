@@ -9,10 +9,18 @@
 
 (define client (make-client BOT-TOKEN))
 
+(define random-line
+    (lambda (lines)
+        (list-ref lines (random (length lines)))))
+
+(define (clean str)
+  (define cleaned (regexp-replace* #px"[^a-zA-Z0-9\\s\\*'àâäéèêëîïôöùûüÿçÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ]" str ""))
+  (regexp-replace* #px"\\\\n" cleaned "\n"))
+
 (write "Démarrage du bot Racket...")
 (newline)
-(write contenu)
-(newline)
+; (write (random-line (string-split (clean contenu) "\n")))
+; (newline)
 (start-client client)
 (write "OK!")
 (newline)
