@@ -5,6 +5,9 @@
 (define BOT-TOKEN (getenv "DISCORD_BOT_TOKEN"))
 (define APP-ID (getenv "DISCORD_APP_ID"))
 
+(when (or (not BOT-TOKEN) (not APP-ID))
+    (error 'main "Vous devez mettre des variables d'environnement système pour DISCORD_BOT_TOKEN et DISCORD_APP_ID"))
+
 (define contenu (file->string "citations.txt"))
 
 (define client (make-client BOT-TOKEN))
