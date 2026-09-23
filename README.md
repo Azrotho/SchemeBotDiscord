@@ -1,7 +1,7 @@
 # SchemeBotDiscord
 
-[![Racket](https://img.shields.io/badge/lang-Racket-9f1d20.svg)](https://racket-lang.org/)
-[![Discord Bot](https://img.shields.io/badge/platform-Discord-5865F2.svg)](https://discord.com/developers/docs/intro)
+![Racket](https://img.shields.io/badge/Racket-%239F1D20.svg?style=for-the-badge&logo=racket&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
 
 Ceci est un bot discord en Scheme pour rendre hommage à mon professeur qui aime bien le langage Scheme.
 Le bot lis une ligne d'un fichier texte qui contient ces citations. *(Citations non incluses dans le repo)*
